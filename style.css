@@ -1,0 +1,667 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+    overflow: hidden;
+    //cursor: url('Skins/cursor.png'), default;
+}
+
+.background{
+    height: 100vh;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation-name: backgroundAnimation;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+}
+
+.background .top-info{
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    width: 100vw;
+    height: 13vh;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    animation-name: topInfoAnimation;
+    animation-duration: 1s;
+    animation-delay: 3s;
+    animation-fill-mode: forwards;
+}
+
+.user-info{
+    height: 12vh;
+    margin-left: 1vh;
+    width: 45vh;
+    align-self: center;
+    background-color: rgba(0,0,0,0.7);
+    display: flex;
+    transition: opacity 330ms;
+}
+
+.user-info .avatar{
+    height: 12vh;
+    width: 12vh;
+    background-color: #000;
+}
+.user-info .avatar img{
+    height: 12vh;
+    width: 12vh;
+}
+
+.user-info .player-stats{
+    font-family: Arial;
+    color: #fff;
+    position: relative;
+}
+
+.user-info .player-stats h2{
+    font-weight: 300;
+    padding-left: 5px;
+}
+
+.user-info .player-stats p{
+    font-weight: 300;
+    padding-left: 5px;
+    font-size: 2vh;
+}
+
+.user-info .player-stats h1{
+    position: absolute;
+    right: -10vh;
+    top: 6.5vh;
+    color: #ddd;
+}
+
+.osu-footer{
+    position: absolute;
+    z-index: 50;
+    bottom: 0;
+    width: 100vw;
+    height: 13vh;
+    background-color: rgba(0,0,0,0.5);
+    opacity: 0;
+    animation-name: topInfoAnimation;
+    animation-delay: 3s;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.osu-footer .my-info{
+    color: #fff;
+    position: absolute;
+    bottom: 1vh;
+    left: 1vh;
+    font-family: Arial;
+}
+
+.osu-footer .my-info h2{
+    font-weight: 200;
+    color: #ddd;
+    font-size: 3vh;
+}
+
+.osu-footer .boxes{
+    position: absolute;
+    z-index: 60;
+    right: 1vh;
+    bottom: 0vh;
+    display: flex;
+}
+.osu-footer .boxes .box{
+    padding: 5px;
+    background-color: rgb(0, 65, 229);
+    font-family: Arial;
+    border: 0.2vh solid #fff;
+    border-bottom: 0;
+    margin: 0px 1vh 0px 1vh;
+    color: #fff;
+}
+
+.options{
+    position: absolute;
+    left: -80vh;
+    height: 100vh;
+    width: 75vh;
+    z-index: 100;
+    background-color: rgba(10,10,10,0.5);
+    transition: all 500ms;
+}
+.options nav{
+    width: 10vh;
+    height: 100vh;
+    background-color: #111;
+    position: absolute;
+    left: 0;
+}
+.options .inner-options{
+    width: 65vh;
+    position: absolute;
+    left: 10vh;
+}
+.options h2{
+    text-align: center;
+    color: #fff;
+    padding-top: 7vh;
+    font-size: 4vh;
+    font-family: Arial;
+    font-weight: 300;
+}
+.options h3{
+    font-family: Arial;
+    font-weight: 300;
+    font-size: 2.5vh;
+    text-align: center;
+    color: #ff96d8;
+}
+
+.options .back-button{
+    position: absolute;
+    bottom: 3vh;
+    background-color: #ff1eab;
+    font-size: 4vh;
+    padding: 1vh 4vh 1vh .5vh;
+    color: #fff;
+    font-family: Arial;
+    border-left: 0px;
+    transition: padding 200ms;
+}
+.options .back-button:hover{
+    padding-left: 1.5vh;
+}
+
+.background .dark-circle{
+    width: 65vh;
+    height: 65vh;
+    border-radius: 50%;
+    background-color: #000;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation-name: circleAnimation, circleBeating;
+    animation-duration: 1s, .6s;
+    animation-delay: 2s, 2.3s;
+    animation-iteration-count: 1, infinite;
+    animation-fill-mode: forwards, forwards;
+}
+
+.menu-interface{
+    max-width: 0px;
+    overflow: hidden;
+    transition: all 200ms;
+    position: relative;
+    left: -10vh;
+    z-index: 1;
+}
+.menu-interface .box{
+    margin: 5px 0;
+    font-size: 4.5vh;
+    font-family: sans-serif;
+    display: block;
+    padding-left: 20vh;
+    padding-right: 5vh;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    background-color: #f791ff;
+    border: 2px solid #fff;
+    color: #fff;
+    transition: all 300ms;
+}
+.menu-interface .box:hover{
+    background-color: #d34bdd;
+}
+.play-interface{
+    max-width: 0px;
+    overflow: hidden;
+    transition: all 200ms;
+    position: relative;
+    left: -10vh;
+    z-index: 1;
+}
+.play-interface .box{
+    margin: 5px 0;
+    font-size: 4.5vh;
+    font-family: sans-serif;
+    display: block;
+    padding-left: 20vh;
+    padding-right: 5vh;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    background-color: #f791ff;
+    border: 2px solid #fff;
+    color: #fff;
+    transition: all 300ms;
+}
+.play-interface .box:hover{
+    background-color: #d34bdd;
+}
+
+.background .osu{
+    position: absolute;
+    opacity: 0;
+    font-size: 27vh;
+    color: #fff;
+    font-family: Arial;
+    font-weight: 500;
+    animation-name: showOsu;
+    animation-duration: .5s;
+    animation-fill-mode: forwards;
+    animation-delay: 2s;
+}
+
+.background .welcome{
+    text-align: center;
+    color: #fff;
+    font-size: 3em;
+    font-family: Arial;
+    font-weight: 300;
+    overflow: hidden;   
+    text-shadow: 1px 1px 20px rgb(0, 68, 255);
+    animation-name: welcomeAnimation, welcomeDisappear;
+    animation-duration: 1.5s;
+    animation-delay: 0s, 1.5s;
+    animation-fill-mode: forwards;
+}
+
+.chat{
+    background-color: rgba(20,20,20,0.8);
+    position: absolute;
+    z-index: 50;
+    bottom: -40vh;
+    height: 35vh;
+    width: 100vw;
+    transition: bottom 500ms;
+}
+
+.chat .textbox{
+    position: absolute;
+    bottom: .3vh;
+    font-family: Arial;
+    background-color: rgba(0,0,0,0);
+    font-size: 2vh;
+    color: #fff;
+    left: 3vh;
+    border: none;
+    padding-top: .5vh;
+    padding-bottom: .5vh;
+    width: 100vh;
+}
+
+.chat p{
+    position: absolute;
+    bottom: .5vh;
+    font-weight: 800;
+    left: 1vh;
+    color: #fff;
+}
+
+.chat .chat-tabs{
+    background-color: rgba(10,10,10,0.6);
+    color: #fff;
+    padding-left: .3vh;
+    display: flex;
+}
+.chat .chat-tabs .tab{
+    background-color: rgb(0, 68, 255);
+    font-family: Arial;
+    border-radius: 1vh 1vh 0 0;
+    padding: .3vh 5vh;
+    border: .2vh solid rgba(0,0,0,0.5);
+    border-bottom: 0;
+}
+.chat .chat-tabs .active{
+    color: #111;
+    background-color: #fff;
+}
+.chat .chat-box{
+    height: 20vh;
+    width: 90vw;
+    padding: 1vh;
+}
+.chat .chat-box p{
+    font-family: Arial;
+    font-weight: 200;
+    position: static;
+}
+.chat .chat-box .users{
+    color: #ffff89;
+}
+
+.exit-prompt{
+    opacity: 0;
+    position: absolute;
+    z-index: 50;
+    width: 100vw;
+    height: 100vh;
+    top: -5000px;
+    background-color: rgba(10,10,10,0.9);
+    transition: opacity 500ms;
+}
+.exit-prompt .box{
+    color: #fff;
+    margin: 10px auto;
+    font-family: Arial;
+    font-weight: 800;
+    font-size: 3vh;
+    width: 80vh;
+    padding: 2vh;
+    text-align: center;
+}
+.exit-prompt h1{
+    color: #fff;
+    font-size: 1;
+    font-family: Arial;
+    font-weight: 200;
+    padding: 2vh;
+}
+
+.exit-prompt .box:nth-child(2){
+    background-color: #34d844;
+}
+.exit-prompt .box:nth-child(3){
+    background-color: #ef214e;
+}
+
+.musics{
+    opacity: 0;
+}
+
+.selections{
+    display: none;
+}
+
+.song-select{
+    height: 100vh;
+    display: none;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    z-index: 5;
+    background-color: #333;
+}
+
+.menu-back{
+    display: none;
+    position: absolute;
+    left: 0;
+    border-top: 2px solid #3de1ff;
+    height: 13vh;
+    width: 13vh;
+}
+.menu-back img{
+    height: 13vh;
+    width: 13vh;
+}
+
+.mode-selection{
+    height: 13vh;
+    position: absolute;
+    bottom: 0;
+    left: 40vh;
+}
+
+.mode-selection img{
+    height: 13vh;
+}
+
+.mod-selection{
+    height: 13vh;
+    position: absolute;
+    bottom: 0;
+    left: 53vh;
+}
+
+.mod-selection img{
+    height: 13vh;
+}
+
+.random-selection{
+    height: 13vh;
+    position: absolute;
+    bottom: 0;
+    left: 64vh;
+}
+
+.random-selection img{
+    height: 13vh;
+}
+
+.option-selection{
+    height: 13vh;
+    position: absolute;
+    bottom: 0;
+    left: 75vh;
+}
+
+.option-selection img{
+    height: 13vh;
+}
+
+.user-info-below{
+    position: absolute;
+    left: 95vh;
+    bottom: .5vh;
+}
+
+.play-circle{
+    position: absolute;
+    height: 28vh;
+    width: 28vh;
+    border-radius: 50%;
+    border: 0.7vh solid #fff;
+    background-color: #f791ff;
+    right: -3vh;
+    bottom: -7.5vh;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    animation-name: smallCircle;
+    animation-duration: 500ms;
+    animation-iteration-count: infinite;
+}
+.play-circle p{
+    text-align: center;
+    font-family: Arial;
+    font-size: 11vh;
+}
+
+.song-info{
+    background-color: #111;
+    padding: .4vh 4vh;
+    color: #fff;
+    font-family: Arial;
+    border-bottom: 3px solid #6e007c;
+}
+
+.song-info h1{
+    font-weight: 300;
+}
+
+.song-gallery{
+    height: 75vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.song-gallery .song{
+    background-color: #111;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 300ms;
+}
+
+.song-gallery .song:hover{
+    padding-right: 15vh;
+    transform: scale(1.02);
+}
+
+.song-gallery .song .song-image{
+    background-color: #eee;
+    width: 19vh;
+    height: 16vh;
+}
+
+.song-gallery .song .song-image img{
+    height: 16vh;
+    width: 19vh;
+}
+
+.song-gallery .song .song-details{
+    padding-left: 3vh;
+    padding-right: 3vh;
+}
+
+.song-gallery .song .song-details .sub{
+    font-size: 2vh;
+}
+
+.song-gallery .song .song-details p{
+    font-size: 4vh;
+    font-family: Arial;
+}
+.stars{
+    display: flex;
+}
+.star{
+    height: 1.5vh;
+    width: 4vh;
+    background-color: #ddd;
+    margin: 0.5vh;
+}
+
+/* Gameplay window */
+
+.gameplay-window{
+    display: none;
+    height: 100vh;
+    width: 100vw;
+    background-image: url(Skins/bg.jpg);
+    background-size: cover;
+}
+
+.circle{
+    height: 15vh;
+    width: 15vh;
+    background-color: #333;
+    border: 1vh solid #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 30vh;
+    bottom: 30vh;
+    transition: 10ms transform;
+}
+.circle p{
+    font-size: 6vh;
+    font-family: Arial;
+    color: #fff;
+    font-weight: 900;
+}
+.approach-circle{
+    position: absolute;
+    height: 15vh;
+    width: 15vh;
+    border: 0.5vh solid #ddd;
+    border-radius: 50%;
+    left: 30vh;
+    bottom: 30vh;
+    transform: scale(3);
+    transition: transform 1500ms;
+}
+
+/* Animations */
+
+@keyframes smallCircle{
+    from{
+        transform: scale(0.9);
+    }
+    to{
+        transform: scale(1.01);
+    }
+}
+
+@keyframes welcomeAnimation{
+    0%{
+        transform: scale(0.5)
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+@keyframes welcomeDisappear{
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        position: absolute;
+        top: -1000px;
+    }
+}
+
+@keyframes backgroundAnimation{
+    0%{
+        background-color: #000;
+    }
+    50%{
+        background-color: #111;
+    }
+    100%{
+        background-color: rgb(0, 65, 229);
+    }
+}
+
+@keyframes circleAnimation{
+    0%{
+        background-color: #000;
+    }
+    100%{
+        border: 2vh solid #fff;
+        box-shadow: 0px 0px 40px 20px #3de1ff;
+        background-color: #f791ff;
+    }
+}
+
+@keyframes circleBeating{
+    0%{
+        transform: scale(0.99);
+        box-shadow: 0px 0px 40px 20px #3de1ff;
+    }
+    100%{
+        transform: scale(1.01);
+        box-shadow: 0px 0px 40px 25px #3de1ff;
+    }
+}
+
+@keyframes showOsu{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes topInfoAnimation{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}

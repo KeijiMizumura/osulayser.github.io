@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Rhythm is just a click away</title>
+</head>
+<body>
+    <div class="everything" id="everything">
+        <!-- osu! Main Menu -->
+        <main id="front-interface">
+            <div class="background">
+                <div class="top-info">
+                    <div class="user-info" id="user-info">
+                        <div class="avatar">
+                            <img src="me.jpeg" alt="mizuke09">
+                        </div>
+                        <div class="player-stats">
+                            <h2>mizuke09</h2>
+                            <p>Performance: 18,999pp</p>
+                            <p>Accuracy: 99.9%</p>
+                            <p>Lv106</p>
+                            <h1>#1</h1>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="options" id="options">
+                    <nav></nav>
+                    <div class="inner-options">
+                        <h2>Options</h2>
+                        <h3>Change the way osu! behaves</h3>
+                    </div>
+                    <div class="back-button" onclick="hideOptions()">Back</div>
+                </div>
+
+
+                <div class="dark-circle" onclick="showMenu()">
+                    <h1 class="welcome">welcome</h1>
+                    <h1 class="osu">osu!</h1>
+                </div>
+                <div class="menu-interface" id="menu-interface">
+                    <div class="box" onclick="showPlayInterface()">
+                        <h2>Play</h2>
+                    </div>
+                    <div class="box">
+                        <h2>Edit</h2>
+                    </div>
+                    <div class="box" onclick="showOptions()">
+                        <h2>Options</h2>
+                    </div>
+                    <div class="box" onclick="exitOsu()">
+                        <h2>Exit</h2>
+                    </div>
+                </div>
+                <div class="play-interface" id="play-interface">
+                    <div class="box" onclick="startGame()">
+                        <h2>Solo</h2>
+                    </div>
+                    <div class="box">
+                        <h2>Multiplayer</h2>
+                    </div>
+                    <div class="box" onclick="hideThis()">
+                        <h2>Back</h2>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!--  -->
+
+        <div class="osu-footer" id="osu-footer">
+            <div class="my-info" id="my-info">
+                <h2>Mizumura Keiji 2018</h2>
+            </div>
+            <div class="boxes" id="chat-controls">
+                <div class="box" onclick="showOnline()">
+                    <p>Online Users</p>
+                </div>
+                <div class="box" onclick="showChat()">
+                    <p>Show Chat</p>
+                </div>
+            </div>
+            <div class="chat" id="chat">
+                <div class="chat-tabs">
+                    <div class="tab">osu!</div>
+                    <div class="tab active">Top Players</div>
+                    <div class="tab">DT Farmers</div>
+                </div>
+                <div class="chat-box">
+                    <p><span class="users">2:54 Cookiezi:</span> yomi yori is EZ</p>
+                    <p><span class="users">2:54 Rafis:</span> fuq u Shige</p>
+                    <p><span class="users">2:55 Mathi:</span> Where is my farm maps Sotarks?</p>
+                    <p><span class="users">2:55 Sotarks:</span> chotto matte Mathi-sama</p>
+                    <p><span class="users">2:55 Peppy:</span> Yamete Oniichan</p>
+                    <p><span class="users">2:56 Cookiezi:</span> wtf peppy</p>
+                    <p><span class="users">2:56 BanchoBot:</span> Peppy has been silenced</p>
+                    <p><span class="users">2:56 Cookiezi:</span> please rank 9* maps Peppy</p>
+                    <p><span class="users">2:57 Rafis:</span> He can't see your chat fucktard</p>
+                </div>
+                <p>></p>
+                <input type="text" class="textbox">
+            </div>
+            <div class="menu-back" id="menu-back" onclick="toMenuBack()">
+                <img src="Skins/menu-back@2x.png" alt="back">
+            </div>
+
+            <div class="selections" id="selections">
+                <div class="mode-selection" id="mode-selection">
+                    <img src="Skins/selection-mode-over@2x.png" alt="mode">
+                </div>
+                <div class="mod-selection" id="mod-selection">
+                    <img src="Skins/selection-mods@2x.png" alt="mods">
+                </div>
+                <div class="random-selection" id="random-selection">
+                    <img src="Skins/selection-random@2x.png" alt="random">
+                </div>
+                <div class="option-selection" id="option-selection">
+                    <img src="Skins/selection-options@2x.png" alt="selection">
+                </div>
+                <div class="user-info user-info-below" id="user-info">
+                    <div class="avatar">
+                        <img src="me.jpeg" alt="mizuke09">
+                    </div>
+                    <div class="player-stats">
+                        <h2>mizuke09</h2>
+                        <p>Performance: 18,999pp</p>
+                        <p>Accuracy: 99.9%</p>
+                        <p>Lv106</p>
+                        <h1>#1</h1>
+                    </div>
+                </div>
+                <div class="play-circle">
+                    <p>osu!</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Osu Song Select Interface -->
+
+        <div class="song-select" id="song-select">
+            <div class="song-info">
+                <h1>Osu Tutorial [Insane]</h1>
+                <p>Mapped by mizuke09</p>
+                <p>Length: 01:02 BPM: 300 Objects: 7</p>
+            </div>
+            <div class="song-gallery">
+                <div class="song" onclick="gameplay()">
+                    <div class="song-image">
+                        <img src="Skins/bg.jpg" alt="tutorial">
+                    </div>
+                    <div class="song-details">
+                        <p>Osu Tutorial [Insane]</p>
+                        <p class="sub">mizuke09 // Sotarks</p>
+                        <div class="stars">
+                            <div class="star"></div>
+                            <div class="star"></div>
+                            <div class="star"></div>
+                            <div class="star"></div>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- Gameplay Window -->
+
+        <div class="gameplay-window" id="gameplay-window">
+            
+            <div class="approach-circle" id="approach-circle">
+
+            </div>
+            <div class="circle circle1" id="circle1">
+                <p>1</p>
+            </div>
+
+        </div>
+
+    <!-- Gameplay Window -->
+
+
+    <div class="exit-prompt" id="exit-prompt">
+        <h1>You want to exit osu!?</h1>
+        <div class="box" onclick="closeOsu()">1. Let's do it!</div>
+        <div class="box" onclick="hideExit()">2. Cancel</div>
+    </div>
+
+    <div class="musics">
+        <audio  id="currentSongToday" autoplay loop>
+            <source src="Sounds/osu-intro.mp3">
+        </audio>
+    </div>
+
+    <script type="text/javascript" src="script.js"></script>
+</body>
+</html>
